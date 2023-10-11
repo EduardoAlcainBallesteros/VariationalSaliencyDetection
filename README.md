@@ -1,5 +1,13 @@
 # VariationalSaliencyDetection
-Non local convex automatic saliency on manifolds primal-dual algorithm
+Non local convex automatic saliency on manifolds primal-dual algorithm. The workflow our algorithm is:
+
+![](SaliencyWorkflow.PNG)
+
+1) Convert RGB into CIE L*a*b
+2) Oversegmentation - Superpixels (SLIC, gSLICr, any other superpixel algithm which produces compact clusters is valid
+3) Control map (contrast prior for saliency and object prior), weights for the graph according to colour and position
+4) k-NN selection over weights
+5) Iterative schema primal-dual until convergence
 
 This code implements the following paper "A non-smooth non-local variational approach to saliency detection in real time" https://link.springer.com/article/10.1007/s11554-020-01016-4 Variational Methods in manifolds for Saliency segmentation
 
