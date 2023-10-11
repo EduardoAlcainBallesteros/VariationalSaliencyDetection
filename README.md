@@ -1,7 +1,7 @@
 # VariationalSaliencyDetection
 Non local convex automatic saliency on manifolds primal-dual algorithm. The workflow our algorithm is:
 
-![](SaliencyWorkflow.PNG)
+![](diagrams/SaliencyWorkflow.PNG)
 
 1) Convert RGB into CIE L*a*b
 2) Oversegmentation - Superpixels (SLIC, gSLICr, any other superpixel algithm which produces compact clusters is valid
@@ -21,10 +21,13 @@ E(u) = J_{NLTV,w}(u) + \lambda F(u) - H(u) (Saliency NLTV with SaliencyTerm) <br
 * H(\mathbf{u})=\frac{1}{2\alpha^2}\sum_{p\in V} (1-\delta u_p)^2,
 * \lamdbda The \lambda parameter is a positive constant for controlling the relative importance of the regularizer vs the fidelity in the functional
 
+The saliency term tries to separate the superpixels into two gropus saliency and no saliency. You can see this effect in the "gray value" histogram where there are two clear groups and compare this with "colour value" histogram where is not a clear separation in groups. 
+
+![](diagrams/SaliencyTerm.PNG)
 
 [1] E. Alcaín, A. Muñoz, I. Ramírez, and E. Schiavi. Modelling Sparse Saliency Maps on Manifolds: Numerical Results and Applications, pages 157{175. Springer International Publishing, Cham, 2019. <br /> 
 [2] Alcaín, E., Muñoz, A.I., Schiavi, E. et al. A non-smooth non-local variational approach to saliency detection in real time. J Real-Time Image Proc (2020). https://doi.org/10.1007/s11554-020-01016-4
-
+The
 
 This software make use of external code to reproduce superpixels
 
